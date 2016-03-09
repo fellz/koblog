@@ -10,10 +10,20 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">
-        <h3>Koblog</h3>
+      <a class="navbar-brand" href="/">
+        <span>Koblog</span>
       </a>
     </div>
+    <div class="collapse navbar-collapse">
+      
+      <% if user_signed_in? %>
+        <a href="/users/sign_up" class="btn btn-default navbar-btn navbar-right" style="margin-left:10px;">Регистрация</a>
+        <a href="/users/sign_in" class="btn btn-default navbar-btn navbar-right">Войти</a>
+      <% else %> 
+        <a href="/users/sign_out" class="btn btn-default navbar-btn navbar-right">Выйти</a> 
+      <% end %>  
+    </div>
+    
   </div>
 </nav>
 <div class="container">
