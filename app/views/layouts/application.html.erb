@@ -15,12 +15,11 @@
       </a>
     </div>
     <div class="collapse navbar-collapse">
-      
       <% if user_signed_in? %>
-        <a href="/users/sign_up" class="btn btn-default navbar-btn navbar-right" style="margin-left:10px;">Регистрация</a>
-        <a href="/users/sign_in" class="btn btn-default navbar-btn navbar-right">Войти</a>
-      <% else %> 
-        <a href="/users/sign_out" class="btn btn-default navbar-btn navbar-right">Выйти</a> 
+        <%= link_to 'Выйти', destroy_user_session_path , class:"btn btn-default navbar-btn navbar-right", :method => :delete %>
+      <% else %>
+        <%= link_to 'Регистрация', new_user_registration_path , class:"btn btn-default navbar-btn navbar-right", style: "margin-left:10px;" %> 
+        <%= link_to 'Войти', new_user_session_path , class:"btn btn-default navbar-btn navbar-right" %>
       <% end %>  
     </div>
     
