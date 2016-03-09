@@ -37,6 +37,11 @@ gem 'redactor-rails'
 gem "carrierwave"
 gem "mini_magick"
 
+## Slim templates ##
+gem 'slim-rails'
+
+##Bootstrap##
+gem "twitter-bootstrap-rails"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
