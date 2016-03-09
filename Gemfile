@@ -47,6 +47,8 @@ gem "twitter-bootstrap-rails"
 ## For paging ##
 gem 'kaminari'
 
+###Adminka##
+gem 'activeadmin', github: 'activeadmin'
 
 ############################
 

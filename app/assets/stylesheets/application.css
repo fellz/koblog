@@ -12,6 +12,7 @@
  *
  *= require bootstrap_and_overrides
  *= require redactor-rails
+ *= require active_admin
  *= require_tree .
  *= require_self
  */
