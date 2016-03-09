@@ -24,7 +24,19 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+####### Custom gems #####
+
+## Authentication
+gem 'devise'
+
+## Redactor ###
+gem 'redactor-rails'
+## Pictures handling ##
+gem "carrierwave"
+gem "mini_magick"
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
