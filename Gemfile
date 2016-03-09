@@ -26,13 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-####### Custom gems #####
+####### Custom gems ########
 
 ## Authentication
 gem 'devise'
 
 ## Redactor ###
 gem 'redactor-rails'
+
 ## Pictures handling ##
 gem "carrierwave"
 gem "mini_magick"
@@ -42,6 +43,12 @@ gem 'slim-rails'
 
 ##Bootstrap##
 gem "twitter-bootstrap-rails"
+
+## For paging ##
+gem 'kaminari'
+
+
+############################
 
 # Use Unicorn as the app server
 # gem 'unicorn'
