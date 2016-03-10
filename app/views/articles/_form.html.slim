@@ -12,6 +12,8 @@
     = f.text_field :description, placeholder: "Описание"
   .form-group
     = f.text_area :body, placeholder: "Текст", rows: 5
+  .form-group
+    = f.collection_select(:category_ids, select_categories, :id, :name, {},{multiple: true}) 
   .field
     = f.hidden_field :user_id, value: "#{current_user.id}"  
   .btn.btn-default

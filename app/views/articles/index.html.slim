@@ -5,6 +5,13 @@ div.page-header
       -if user_signed_in?
         = link_to 'Создать', new_article_path, style: "margin-left:20px;"  
 
+div 
+  span style="margin-right:20px;" Категории
+  - @categories.each do |c|
+    span
+      = c.name
+      |  
+
 ul.articles
   - @articles.each do |article|
       li 
@@ -14,9 +21,11 @@ ul.articles
             small
               -if article_owner?(article)
                 = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, style: "margin-left:20px;"
+            small.right 
+              - article.categories.each do |c|
+                span  style="margin-left:10px;"
+                  =c.name
         div = article.description
-        
-
 br
 
 
