@@ -10,9 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap_and_overrides
  *= require redactor-rails
  *= require active_admin
+ *= require bootstrap_and_overrides
  *= require_tree .
  *= require_self
  */
+.container{
+  width:70%;
+}
+ul.articles  li{
+  list-style-type: none;
+}

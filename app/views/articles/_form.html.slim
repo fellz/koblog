@@ -6,16 +6,13 @@
         - @article.errors.full_messages.each do |message|
           li = message
 
+  .form-group
+    = f.text_field :title, placeholder: "Заголовок"
+  .form-group
+    = f.text_field :description, placeholder: "Описание"
+  .form-group
+    = f.text_area :body, placeholder: "Текст", rows: 5
   .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :body
-    = f.text_area :body
-  .field
-    = f.label :approved
-    = f.check_box :approved
-  .actions = f.submit
+    = f.hidden_field :user_id, value: "#{current_user.id}"  
+  .btn.btn-default
+    = f.submit

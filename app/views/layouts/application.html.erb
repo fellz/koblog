@@ -2,19 +2,24 @@
 <html>
 <head>
   <title>Koblog</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
       <a class="navbar-brand" href="/">
         <span>Koblog</span>
       </a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse bs-navbar-collapse">
       <% if user_signed_in? %>
         <%= link_to 'Выйти', destroy_user_session_path , class:"btn btn-default navbar-btn navbar-right", :method => :delete %>
       <% else %>
@@ -26,8 +31,9 @@
   </div>
 </nav>
 <div class="container">
+  <%= render 'layouts/flash_messages' %>
   <%= yield %>
 </div>
-
+<%= javascript_include_tag 'application' %>
 </body>
 </html>

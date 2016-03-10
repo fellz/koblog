@@ -1,26 +1,22 @@
-h1 Listing articles
+div.page-header
+  h3 
+    |Статьи
+    small
+      -if user_signed_in?
+        = link_to 'Создать', new_article_path, style: "margin-left:20px;"  
 
-table
-  thead
-    tr
-      th Title
-      th Description
-      th Body
-      th Approved
-      th
-      th
-      th
-
-  tbody
-    - @articles.each do |article|
-      tr
-        td = article.title
-        td = article.description
-        td = article.body
-        td = link_to 'Show', article
-        td = link_to 'Edit', edit_article_path(article)
-        td = link_to 'Destroy', article, data: {:confirm => 'Are you sure?'}, :method => :delete
+ul.articles
+  - @articles.each do |article|
+      li 
+        div.page-header
+          h4 
+            = link_to article.title, article 
+            small
+              -if article_owner?(article)
+                = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, style: "margin-left:20px;"
+        div = article.description
+        
 
 br
 
-= link_to 'New Article', new_article_path
+
