@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  post 'subscriptions/subscribe'
+
+  post 'subscriptions/unsubscribe'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
