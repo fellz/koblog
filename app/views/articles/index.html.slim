@@ -7,10 +7,12 @@ div.page-header
 
 div 
   span style="margin-right:20px;" Категории
+  ul
   - @categories.each do |c|
-    span
-      = c.name
-      |  
+    li
+      span
+        = c.name
+        |  
 
 ul.articles
   - @articles.each do |article|
