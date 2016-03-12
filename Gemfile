@@ -50,6 +50,9 @@ gem 'kaminari'
 ###Adminka##
 gem 'activeadmin', github: 'activeadmin'
 
+## Async mailing with sidekiq ###
+gem 'sidekiq'
+
 ############################
 
 # Use Unicorn as the app server

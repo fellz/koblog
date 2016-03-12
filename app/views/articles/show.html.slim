@@ -9,4 +9,7 @@ p
 - if article_owner?(@article)
   = link_to 'Edit', edit_article_path(@article)
 
+br
+= link_to @article.title, @article_path
+= link_to 'Отписаться', subscriptions_unsubscribe_path(user_id:1,category_id:2)
 

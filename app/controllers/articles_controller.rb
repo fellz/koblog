@@ -31,6 +31,9 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
+        ## send emails to category subscribers
+        send_emails(article_params[:article][:category_ids], @article) 
+        
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }

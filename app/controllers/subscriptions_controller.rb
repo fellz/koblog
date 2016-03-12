@@ -19,4 +19,10 @@ class SubscriptionsController < ApplicationController
       end
     end  
   end
+
+  def unsubscribe
+    s = Subscription.where("user_id = ? AND category_id= ?", params[:user_id], params[:category_id])
+    s.first.delete
+  end
+
 end

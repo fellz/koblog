@@ -13,10 +13,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'}  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :port      => 587,
+    :address   => "smtp.mandrillapp.com",
+    :user_name => "felixcon@gmail.com",
+    :password  => "PvgSXQ2VNN96ZDzlZ9CSHg"
+   }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
 
   # Print deprecation notices to the Rails logger.
