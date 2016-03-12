@@ -4,7 +4,8 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <p>Подробности по ссылке <%= link_to @article.title, @article_path %></p>
-    <p> Отписаться от новостей категории <%= link_to 'Отписаться', subscriptions_unsubscribe_path(user_id: @user.id,category_id: @category_id)%></p>
+    <p><%= link_to @article.title, article_url(@article) %></p>
+
+    <p> Отписаться от новостей категории <%= link_to 'Отписаться', subscriptions_unsubscribe_path(user_id: @user_id,category_id: @category_id)%></p>
   </body>
 </html>

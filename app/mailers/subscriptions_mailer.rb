@@ -1,12 +1,11 @@
 class SubscriptionsMailer < ApplicationMailer
   default from: 'Koblog<robot@koblog.ru>'
-
-  def subs_email(user_id, category_id, user_email, article, )
-    @user_id = user_id
-    @category_id = category_id
-    @user_email = user_email
+  layout "mailer"
+  def subs_email(user, category, article )
+    @user_id = user.id
+    @category_id = category.id
     @article = article
-    mail(to: @user_email,
-         subject: "Новая статья в #{@category.name}")
+    mail(to: user.email,
+         subject: "Новая статья в #{category.name}")
   end
 end

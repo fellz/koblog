@@ -13,7 +13,7 @@
   .form-group
     = f.text_area :body, placeholder: "Текст", rows: 5
   .form-group
-    = f.collection_select(:category_ids, select_categories, :id, :name, {},{multiple: true}) 
+    = f.collection_select(:category_ids, Category.all, :id, :name, {include_hidden: false},{multiple: true} ) 
   .field
     = f.hidden_field :user_id, value: "#{current_user.id}"  
   .btn.btn-default

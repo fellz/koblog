@@ -32,7 +32,7 @@ class ArticlesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
         ## send emails to category subscribers
-        send_emails(article_params[:article][:category_ids], @article) 
+        SubsWorker.perform_async(article_params[:category_ids], @article.id) 
         
       else
         format.html { render :new }
@@ -75,4 +75,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :description, :body, :approved, :user_id, :category_ids =>[])
     end
+       
 end
