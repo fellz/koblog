@@ -33,9 +33,9 @@ class ArticlesController < ApplicationController
         format.json { render :show, status: :created, location: @article }
         cat_ids = article_params[:category_ids]
         ## if no categories selected don't perform any tasks
-        if !cat_ids.empty?
-          SubsWorker.perform_async(cat_ids, @article.id)
-        end
+        #if !cat_ids.empty?
+        #  SubsWorker.perform_async(cat_ids, @article.id)
+        #end
 
       else
         format.html { render :new }
