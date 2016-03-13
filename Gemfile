@@ -52,7 +52,8 @@ gem 'activeadmin', github: 'activeadmin'
 
 ## Async mailing with sidekiq ###
 gem 'sidekiq'
-
+## Sidekiq monitoring ##
+gem 'sinatra', require: false
 ############################
 
 # Use Unicorn as the app server
