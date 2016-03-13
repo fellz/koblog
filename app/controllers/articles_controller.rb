@@ -31,8 +31,11 @@ class ArticlesController < ApplicationController
       if @article.save
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
-        ## send emails to category subscribers
-        SubsWorker.perform_async(article_params[:category_ids], @article.id)
+        cat_ids = article_params[:category_ids]
+        ## if no categories selected don't perform any tasks
+        if !cat_ids.empty?
+          SubsWorker.perform_async(cat_ids, @article.id)
+        end
 
       else
         format.html { render :new }
