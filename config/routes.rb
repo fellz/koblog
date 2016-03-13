@@ -1,13 +1,18 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   
+  
   post 'subscriptions/subscribe'
   get 'subscriptions/unsubscribe'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :articles
+  resources :comments, only: [:create, :destroy]
+
+  resources :articles do
+    resources :comments, only: :index
+  end
   
   mount RedactorRails::Engine => '/redactor_rails'
   

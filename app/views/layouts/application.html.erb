@@ -20,12 +20,16 @@
       </a>
     </div>
     <div class="collapse navbar-collapse bs-navbar-collapse">
+
       <% if user_signed_in? %>
         <%= link_to 'Выйти', destroy_user_session_path , class:"btn btn-default navbar-btn navbar-right", :method => :delete %>
       <% else %>
         <%= link_to 'Регистрация', new_user_registration_path , class:"btn btn-default navbar-btn navbar-right", style: "margin-left:10px;" %> 
         <%= link_to 'Войти', new_user_session_path , class:"btn btn-default navbar-btn navbar-right" %>
-      <% end %>  
+      <% end %>
+      <% if current_user %>
+        <span class="btn btn-default navbar-btn navbar-right" style="margin-right:100px;"><%= current_user.email  %></span>
+      <% end %>
     </div>
     
   </div>
@@ -34,6 +38,8 @@
   <%= render 'layouts/flash_messages' %>
   <%= yield %>
 </div>
+
+<div style="height:200px;"></div>
 <%= javascript_include_tag 'application' %>
 </body>
 </html>

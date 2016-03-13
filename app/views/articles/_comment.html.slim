@@ -1,0 +1,13 @@
+div.well.comments_block
+  p 
+    span style="margin-right:10px;" Запощено:
+    =c.created_at.to_formatted_s(:short)
+  p 
+    span style="margin-right:10px;" Автор:
+    =c.author
+  hr
+  p =c.content
+
+  =hidden_field_tag :parent_id, c.id
+  hr
+  a href="#" class="comments_reply" Reply

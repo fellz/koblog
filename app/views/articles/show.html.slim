@@ -9,4 +9,23 @@ p
 - if article_owner?(@article)
   = link_to 'Edit', edit_article_path(@article)
 
-br
+
+hr
+h3 Comments here
+div.col-md-6
+  div
+    =nested_comments @article.comments.arrange
+    
+  
+  a#comment_add href="#" Добавить комментарий
+
+  div#comment_form
+    .form-group
+      =text_field_tag :author, nil, class: 'form-control', placeholder: 'Автор'
+    .form-group  
+      =text_area_tag :content, nil, class: 'form-control', row: 20, placeholder: 'Сообщение'
+    .form-group
+      =hidden_field_tag :article_id , @article.id
+    .form-group
+      .btn.btn-default
+        = submit_tag 'Добавить', id: :comment_submit

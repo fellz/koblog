@@ -22,3 +22,9 @@
 ul.articles  li{
   list-style-type: none;
 }
+#comment_form{
+  display:none;
+}
+.nested_comments{
+  margin-left:30px;
+}

@@ -52,8 +52,13 @@ gem 'activeadmin', github: 'activeadmin'
 
 ## Async mailing with sidekiq ###
 gem 'sidekiq'
+
 ## Sidekiq monitoring ##
 gem 'sinatra', require: false
+
+## for trees in comments ##
+gem 'ancestry'
+
 ############################
 
 # Use Unicorn as the app server
