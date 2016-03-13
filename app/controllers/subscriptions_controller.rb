@@ -23,6 +23,7 @@ class SubscriptionsController < ApplicationController
   def unsubscribe
     s = Subscription.where("user_id = ? AND category_id= ?", params[:user_id], params[:category_id])
     s.first.delete
+    redirect_to root_path, notice: 'Успешно отписались'
   end
 
 end

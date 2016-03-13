@@ -32,8 +32,8 @@ class ArticlesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
         ## send emails to category subscribers
-        SubsWorker.perform_async(article_params[:category_ids], @article.id) 
-        
+        SubsWorker.perform_async(article_params[:category_ids], @article.id)
+
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
