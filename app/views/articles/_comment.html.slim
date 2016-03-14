@@ -8,6 +8,7 @@ div.well.comments_block
   hr
   p =c.content
 
-  =hidden_field_tag :parent_id, c.id
   hr
-  a href="#" class="comments_reply" Reply
+  a href="#" class="comments_reply" data-id="#{c.id}" Reply
+  - if admin?
+    a href="#" class="comment_delete" data-id="#{c.id}" style="margin-left:10px;" Delete

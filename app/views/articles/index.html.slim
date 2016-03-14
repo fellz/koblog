@@ -23,9 +23,9 @@ ul.articles
           h4 
             = link_to article.title, article
             small
-              -if article_owner?(article)
+              -if article_owner?(article) || admin?
                 = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, style: "margin-left:20px;"
-            small.right 
+            small.pull-right 
               - article.categories.each do |c|
                 span  style="margin-left:10px;"
                   =c.name

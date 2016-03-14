@@ -59,7 +59,9 @@ gem 'sinatra', require: false
 ## for trees in comments ##
 gem 'ancestry'
 
+
 ############################
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -70,6 +72,7 @@ gem 'ancestry'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'quiet_assets'
 end
 
 group :development do

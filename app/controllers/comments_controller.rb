@@ -13,12 +13,17 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(comment_params[:comment_id])
+    @comment.destroy
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
   private
 
     def comment_params
-      params.permit(:author, :content, :article_id, :parent_id)
+      params.permit(:author, :content, :article_id, :comment_id,:parent_id)
     end
 end
 
