@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: :index
+    member do
+      get 'approve'
+    end
   end
   
   mount RedactorRails::Engine => '/redactor_rails'
