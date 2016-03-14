@@ -21,7 +21,7 @@ ul.articles
       li 
         div.page-header
           h4 
-            = link_to article.title, article 
+            = link_to article.title, article
             small
               -if article_owner?(article)
                 = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, style: "margin-left:20px;"
@@ -30,5 +30,10 @@ ul.articles
                 span  style="margin-left:10px;"
                   =c.name
         div = article.description
+        p style="margin-top:10px;"
+          small
+            |Комментарии
+            span style="margin-left:5px;"
+              = article.comments.count
 br
 

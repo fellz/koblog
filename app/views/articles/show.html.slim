@@ -27,5 +27,4 @@ div.col-md-6
     .form-group
       =hidden_field_tag :article_id , @article.id
     .form-group
-      .btn.btn-default
-        = submit_tag 'Добавить', id: :comment_submit
+      = submit_tag 'Добавить', id: :comment_submit, class: "btn btn-default"

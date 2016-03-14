@@ -7,14 +7,14 @@
           li = message
 
   .form-group
-    = f.text_field :title, placeholder: "Заголовок"
+    = f.text_field :title, class: "form-control", placeholder: "Заголовок"
   .form-group
-    = f.text_field :description, placeholder: "Описание"
+    = f.text_field :description, class: "form-control", placeholder: "Описание"
   .form-group
     = f.text_area :body, :class => "redactor", :rows => 40, :cols => 120, placeholder: "Текст"
   .form-group
     = f.collection_select(:category_ids, Category.all, :id, :name, {include_hidden: false},{multiple: true} ) 
   .field
     = f.hidden_field :user_id, value: "#{current_user.id}"  
-  .btn.btn-default
-    = f.submit
+  .form-group
+    = f.submit class: "btn btn-default"

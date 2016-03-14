@@ -11,9 +11,7 @@
  * file per style scope.
  *
  *= require redactor-rails
- *= require active_admin
  *= require bootstrap_and_overrides
- *= require_tree .
  *= require_self
  */
 .container{

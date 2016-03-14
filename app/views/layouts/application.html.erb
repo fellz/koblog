@@ -29,6 +29,8 @@
       <% end %>
       <% if current_user %>
         <span class="btn btn-default navbar-btn navbar-right" style="margin-right:100px;"><%= current_user.email  %></span>
+      <% else %>
+        <span class="btn btn-default navbar-btn navbar-right" style="margin-right:100px;">Привет анонимус !!</span>
       <% end %>
     </div>
     
