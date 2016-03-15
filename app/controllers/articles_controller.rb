@@ -65,7 +65,12 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def search
+    @articles = Article.search params[:q]
+    @categories = Category.all
+    render "index"
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,7 +80,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :description, :body, :approved, :user_id, :category_ids =>[])
+      params.require(:article).permit(:title, :description, :body, :approved, :user_id, :q, :category_ids =>[] )
     end
        
 end

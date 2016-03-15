@@ -5,15 +5,17 @@ Rails.application.routes.draw do
   post 'subscriptions/subscribe'
   get 'subscriptions/unsubscribe'
 
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
   resources :comments, only: [:create, :destroy]
 
+
   resources :articles do
     resources :comments, only: :index
-    member do
-      get 'approve'
+    collection do
+      get 'search'
     end
   end
   

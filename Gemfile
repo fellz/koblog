@@ -62,6 +62,11 @@ gem 'ancestry'
 ## for Facebook registration ##
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+## For Sphinx
+gem 'mysql2',          '~> 0.3.18', :platform => :ruby
+gem 'thinking-sphinx', '~> 3.1.4'
+
 ############################
 
 

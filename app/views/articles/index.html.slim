@@ -15,6 +15,14 @@ div
       - if current_user  
         span style="margin-left:10px;" Подписка
         =check_box_tag '', 1, subscribed?(current_user.id,c.id), class: 'category_subs', user: "#{current_user.id}", category: "#{c.id}"
+hr
+// Sphinx Search
+= form_tag "/articles/search", method: "get" do
+  div.row
+    div.col-md-11
+      = text_field_tag 'q','', class: 'form-control', placeholder: 'Что ищем'
+    div.col-md-1
+      = submit_tag "Search", class: 'btn btn-default'
 
 // List of articles
 ul.articles
