@@ -59,7 +59,9 @@ gem 'sinatra', require: false
 ## for trees in comments ##
 gem 'ancestry'
 
-
+## for Facebook registration ##
+gem 'omniauth'
+gem 'omniauth-facebook'
 ############################
 
 
