@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.where(approved: true).order(created_at: :desc)
+    @articles = Article.where(approved: true).order(created_at: :desc).page params[:page]
     @categories = Category.all
   end
 
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
         format.json { render :show, status: :created, location: @article }
         cat_ids = article_params[:category_ids]
         ## if no categories selected don't perform any tasks. cat_ids -> nil if empty
-        SubsWorker.perform_async(cat_ids, @article.id) if cat_ids
+        #SubsWorker.perform_async(cat_ids, @article.id) if cat_ids
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }

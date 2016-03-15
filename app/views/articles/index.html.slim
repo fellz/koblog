@@ -16,6 +16,7 @@ div
         span style="margin-left:10px;" Подписка
         =check_box_tag '', 1, subscribed?(current_user.id,c.id), class: 'category_subs', user: "#{current_user.id}", category: "#{c.id}"
 
+// List of articles
 ul.articles
   - @articles.each do |article|
       li 
@@ -36,4 +37,5 @@ ul.articles
             span style="margin-left:5px;"
               = article.comments.count
 br
+= paginate @articles
 
