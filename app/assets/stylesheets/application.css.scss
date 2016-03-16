@@ -43,3 +43,16 @@ ul.articles  li{
 .unsub{
   display:none;
 }
+.spinner {
+    display: none;
+    position: absolute;
+    opacity: 0.5;
+    background-color: gray;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+}
+h1.loading {
+    margin: 15% 40%;
+    color: white;
+}

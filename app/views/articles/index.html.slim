@@ -8,7 +8,7 @@ div.page-header
 
 // Categories
 div.row
-  div.col-md-6 
+  div.col-md-4 
     table class="table table-striped"
       - @categories.each do |c|
         tr
@@ -17,11 +17,11 @@ div.row
           - if current_user  
             td
               - if subscribed?(current_user.id,c.id)
-                button class="subscribed btn btn-default" user="#{current_user.id}" category="#{c.id}"
+                button class="subscribed btn btn-default pull-right" user="#{current_user.id}" category="#{c.id}"
                   span class="subd" Подписан
                   span class="unsub" Отписаться
               -else
-                button class="subscribe btn btn-default" user="#{current_user.id}" category="#{c.id}" Подписаться
+                button class="subscribe btn btn-default pull-right" user="#{current_user.id}" category="#{c.id}" Подписаться
   div.col-md-6
     // Tag cloud
     div id="tag_cloud"
