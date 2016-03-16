@@ -13,6 +13,9 @@
   .form-group
     = f.text_area :body, :class => "redactor", :rows => 40, :cols => 120, placeholder: "Текст"
   .form-group
+    = f.label :tag_list, "Tags (через запятую)"
+    = f.text_field :tag_list
+  .form-group
     = f.collection_select(:category_ids, Category.all, :id, :name, {include_hidden: false},{multiple: true} ) 
   .field
     = f.hidden_field :user_id, value: "#{current_user.id}"  

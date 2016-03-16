@@ -67,6 +67,8 @@ gem 'omniauth-facebook'
 gem 'mysql2',          '~> 0.3.18', :platform => :ruby
 gem 'thinking-sphinx', '~> 3.1.4'
 
+## For Tagging
+gem 'acts-as-taggable-on', '~> 3.4'
 ############################
 
 

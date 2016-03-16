@@ -1,3 +1,4 @@
+// Header
 div.page-header
   h3 
     |Статьи
@@ -5,17 +6,30 @@ div.page-header
       -if user_signed_in?
         = link_to 'Добавить', new_article_path, style: "margin-left:20px;"  
 
-div 
-  span style="margin-right:20px;" Категории
-  ul
-  - @categories.each do |c|
-    li
-      span
-        = c.name
-      - if current_user  
-        span style="margin-left:10px;" Подписка
-        =check_box_tag '', 1, subscribed?(current_user.id,c.id), class: 'category_subs', user: "#{current_user.id}", category: "#{c.id}"
+// Categories
+div.row
+  div.col-md-6 
+    table class="table table-striped"
+      - @categories.each do |c|
+        tr
+          td
+            span = c.name
+          - if current_user  
+            td
+              - if subscribed?(current_user.id,c.id)
+                button class="subscribed btn btn-default" user="#{current_user.id}" category="#{c.id}"
+                  span class="subd" Подписан
+                  span class="unsub" Отписаться
+              -else
+                button class="subscribe btn btn-default" user="#{current_user.id}" category="#{c.id}" Подписаться
+  div.col-md-6
+    // Tag cloud
+    div id="tag_cloud"
+      -tag_cloud Article.tag_counts, %w{s m l} do |tag, css_class|
+        = link_to tag.name, tag_path(tag.name), class: css_class
+
 hr
+
 // Sphinx Search
 = form_tag "/articles/search", method: "get" do
   div.row
@@ -28,22 +42,28 @@ hr
 ul.articles
   - @articles.each do |article|
       li 
-        div.page-header
+        div
           h4 
             = link_to article.title, article
-            small
-              -if article_owner?(article) || admin?
-                = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, style: "margin-left:20px;"
-            small.pull-right 
+          p
+            small style="color:gray;"
               - article.categories.each do |c|
                 span  style="margin-left:10px;"
                   =c.name
-        div = article.description
-        p style="margin-top:10px;"
-          small
-            |Комментарии
-            span style="margin-left:5px;"
-              = article.comments.count
+        p = article.description
+        p
+          -if !(article_tags(article) == '')
+            span style="font-weight:bold;margin-right:10px;" Tags:
+            = raw article_tags(article) 
+        div.row style="margin-top:20px;"
+          div.col-md-4
+            - if !(article.comments.count == 0)
+              small
+                = link_to "Комментарии #{article.comments.count}", article_path(article)
+          div.col-md-8
+            -if article_owner?(article) || admin?
+              = link_to 'Удалить', article, data: {:confirm => 'Are you sure?'}, :method => :delete, class:'pull-right', style: "margin-left:20px;"
+      hr    
 br
 = paginate @articles
 

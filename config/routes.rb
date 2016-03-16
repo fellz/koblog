@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   post 'subscriptions/subscribe'
   get 'subscriptions/unsubscribe'
-
+  get 'tags/:tag', to: 'articles#index', as: :tag
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

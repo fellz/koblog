@@ -26,3 +26,20 @@ ul.articles  li{
 .nested_comments{
   margin-left:30px;
 }
+#tag_cloud {
+  width: 400px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
+.category_subs{
+  margin-left:10px;
+}
+.subscribed:hover{
+  .unsub{display: block;}
+  .subd{display: none;}  
+}
+.unsub{
+  display:none;
+}

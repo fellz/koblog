@@ -4,6 +4,7 @@ ActiveAdmin.register User do
     column :email
     column :created_at
     column :name
+    column :provider
     actions
   end
 end

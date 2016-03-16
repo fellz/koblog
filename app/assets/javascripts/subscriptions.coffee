@@ -1,11 +1,10 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
-$('.category_subs').change (e)->
-  that = this
-  userid = $(this).attr('user')
-  categoryid = $(this).attr('category')
+subs = (t)->
+  that = t
+  userid = $(t).attr('user')
+  categoryid = $(t).attr('category')
   $.ajax(
     method: 'POST'
     url: 'subscriptions/subscribe'
@@ -14,7 +13,14 @@ $('.category_subs').change (e)->
       category_id: categoryid).done((msg) ->
           console.log "Success"
           console.log msg
+          window.location.reload()
         ).fail((msg)->
           console.log "Fail"
           console.log msg
         )
+
+$('.subscribe').click (e)->
+  subs(this)
+
+$('.subscribed').click (e)->
+  subs(this)

@@ -4,8 +4,13 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.where(approved: true).order(created_at: :desc).page params[:page]
-    @categories = Category.all
+    if params[:tag]
+      @articles = Article.tagged_with(params[:tag]).page params[:page]
+      @categories = Category.all
+    else 
+      @articles = Article.where(approved: true).order(created_at: :desc).page params[:page]
+      @categories = Category.all
+    end
   end
 
   # GET /articles/1
@@ -80,7 +85,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :description, :body, :approved, :user_id, :q, :category_ids =>[] )
+      params.require(:article).permit(:title, :description, :body, :approved, :user_id, :q, :tag_list, :category_ids =>[] )
     end
        
 end
