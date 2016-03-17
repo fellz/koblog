@@ -29,10 +29,9 @@ ul.articles  li{
 #tag_cloud {
   width: 400px;
   line-height: 1.6em;
-  overflow-wrap: break-word;
-  .s { font-size: 0.8em; margin-left:5px;}
-  .m { font-size: 1.2em; margin-left:5px;}
-  .l { font-size: 1.8em; margin-left:5px;}
+  .s { font-size: 0.8em; display:inline-block; margin-left:5px;}
+  .m { font-size: 1.2em; display:inline-block; margin-left:5px;}
+  .l { font-size: 1.8em; display:inline-block; margin-left:5px;}
 }
 .category_subs{
   margin-left:10px;
