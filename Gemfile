@@ -69,6 +69,10 @@ gem 'thinking-sphinx', '~> 3.1.4'
 
 ## For Tagging
 gem 'acts-as-taggable-on', '~> 3.4'
+
+## Heroku
+gem 'rails_12factor', group: :production
+
 ############################
 
 
