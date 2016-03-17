@@ -3,6 +3,7 @@ class ApproveMailer < ApplicationMailer
   layout "mailer"
   def approve_email(user, article)
     @user_id = user.id
+    @article = article
     mail(to: user.email,
          subject: "Ваша статья '#{article.title}' #{article.approved ? 'одобрена': 'не одобрена' }" )
   end
