@@ -29,7 +29,7 @@ ul.articles  li{
 #tag_cloud {
   width: 400px;
   line-height: 1.6em;
-  .s { font-size: 0.8em; margin-left:5px; }
+  .s { font-size: 0.8em; margin-left:5px;}
   .m { font-size: 1.2em; margin-left:5px;}
   .l { font-size: 1.8em; margin-left:5px;}
 }
@@ -42,17 +42,4 @@ ul.articles  li{
 }
 .unsub{
   display:none;
-}
-.spinner {
-    display: none;
-    position: absolute;
-    opacity: 0.5;
-    background-color: gray;
-    z-index: 1000;
-    height: 100%;
-    width: 100%;
-}
-h1.loading {
-    margin: 15% 40%;
-    color: white;
 }
