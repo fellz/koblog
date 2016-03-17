@@ -25,7 +25,7 @@ div.row
   div.col-md-6
     // Tag cloud
     div id="tag_cloud"
-      -tag_cloud(@tags, %w(s m l)) do |tag, css_class|
+      -tag_cloud(tags, %w(s m l)) do |tag, css_class|
         = link_to tag.name, tag_path(tag.name), class: css_class
 
 hr

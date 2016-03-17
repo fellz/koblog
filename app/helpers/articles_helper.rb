@@ -7,6 +7,10 @@ module ArticlesHelper
     end.join.html_safe
   end
   def article_tags article
-    article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+    article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')  
+  end
+
+  def tags
+    Article.tag_counts_on(:tags)
   end
 end

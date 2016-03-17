@@ -10,7 +10,6 @@ class ArticlesController < ApplicationController
     else 
       @articles = Article.where(approved: true).order(created_at: :desc).page params[:page]
       @categories = Category.all
-      @tags = Article.tag_counts_on(:tags)
     end
   end
 
