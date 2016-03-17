@@ -16,7 +16,7 @@ ActiveAdmin.register Article do
     article = resource
     article.approved = true
     article.save
-    ApproveMailer.approve_email(article.user,article).deliver_now
+    ApproveMailer.approve_email(article.user,article).deliver_later
     redirect_to admin_articles_path, notice: "Одобрено"
   end
   
