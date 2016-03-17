@@ -2,7 +2,7 @@ class SubscriptionsController < ApplicationController
   def subscribe
     ## Find subscription
     s = Subscription.where("user_id = ? AND category_id= ?", params[:user_id], params[:category_id])
-    ## If s empty then make new Subscription ans save
+    ## If it's empty then make new Subscription ans save
     if s.empty?
       sub= Subscription.new(user_id: params[:user_id], category_id: params[:category_id])
       respond_to do |format|
@@ -13,17 +13,10 @@ class SubscriptionsController < ApplicationController
         end
       end  
     else
-      s.first.delete
+      s.first.destroy
       respond_to do |format|
-        format.json { render json: s }
+        format.json { head :no_content }
       end
     end  
   end
-
-  def unsubscribe
-    s = Subscription.where("user_id = ? AND category_id= ?", params[:user_id], params[:category_id])
-    s.first.delete
-    redirect_to root_path, notice: 'Успешно отписались'
-  end
-
 end
