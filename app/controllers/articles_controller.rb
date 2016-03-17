@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to root_path, notice: 'Article was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Статья создана, поздравляю !' }
         format.json { render :show, status: :created, location: @article }
         cat_ids = article_params[:category_ids]
         ## if no categories selected don't perform any tasks. cat_ids -> nil if empty
@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: 'Ура, изменили !!' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: 'Погребение прошло успешно !' }
       format.json { head :no_content }
     end
   end
