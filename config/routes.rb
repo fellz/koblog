@@ -2,8 +2,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   
   
-  post 'subscriptions/subscribe'
-  get 'subscriptions/unsubscribe'
+  get 'subscriptions/subscribe'
   get 'tags/:tag', to: 'articles#index', as: :tag
 
   devise_for :admin_users, ActiveAdmin::Devise.config

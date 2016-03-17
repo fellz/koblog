@@ -3,14 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 subs = (t)->
   that = t
-  userid = $(t).attr('user')
-  categoryid = $(t).attr('category')
+  user_id = $(t).attr('user')
+  category_id = $(t).attr('category')
   $.ajax(
-    method: 'POST'
-    url: 'subscriptions/subscribe'
-    data:
-      user_id: userid
-      category_id: categoryid).done((msg) ->
+    method: 'GET'
+    url: 'subscriptions/subscribe?category_id='+category_id+'&user_id='+user_id
+    ).done((msg) ->
           console.log "Success"
           console.log msg
           window.location.reload()
