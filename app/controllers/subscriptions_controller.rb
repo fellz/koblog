@@ -15,6 +15,7 @@ class SubscriptionsController < ApplicationController
     else
       s.first.destroy
       respond_to do |format|
+        format.html {redirect_to root_path, notice: "Вы отписались от категории"}
         format.json { head :no_content }
       end
     end  
