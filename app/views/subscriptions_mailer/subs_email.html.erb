@@ -6,6 +6,6 @@
   <body>
     <p><%= link_to @article.title, article_url(@article) %></p>
 
-    <p> Отписаться от новостей категории <%= link_to 'Отписаться', subscriptions_unsubscribe_url(user_id: @user_id,category_id: @category_id)%></p>
+    <p> Отписаться от новостей категории <%= link_to 'Отписаться', subscriptions_subscribe_url(user_id: @user_id,category_id: @category_id)%></p>
   </body>
 </html>
