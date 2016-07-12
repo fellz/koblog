@@ -1,28 +1,37 @@
-== README
+== Project info
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Collective blog with following features:
 
-Things you may want to cover:
+* Authorization with devise
 
-* Ruby version
+* Authorized users can post articles
 
-* System dependencies
+* Post moderation
 
-* Configuration
+* Admin panel for approval/rejecting posts
 
-* Database creation
+* Email notifications
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Category subscribtions with email notifications about new posts
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Stack: 
+
+* Ruby 2.2.4
+
+* Rails 4.2.6
+
+* Frontend: jQuery, Coffeescript
+
+* Database PostgreSQL
+
+* Redis for Sidekiq
+
+* Sidekiq for email sending
+
+* Services - Elasticsearch
+
+* Deployment - heroku 
+
+
+Made within 10 days.
